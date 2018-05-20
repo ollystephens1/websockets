@@ -1,5 +1,4 @@
 var socket = io.connect('http://localhost:4000');
-
 var message = document.getElementById('message');
 var handle = document.getElementById('handle');
 var btn = document.getElementById('send');
@@ -15,8 +14,5 @@ btn.addEventListener('click', function() {
 
 // Listen for events
 socket.on('chat', function(data) {
-  console.log('Message received: ', data);
   output.innerHTML += '<p><strong>' + data.handle + ': </strong>' + data.message + '</p>';
 });
-
-
