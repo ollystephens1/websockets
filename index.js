@@ -14,6 +14,9 @@ app.use(express.static('public'));
 // Socket setup & pass server
 const io = socket(server);
 
-io.on('connection', (socket) => {
-  console.log('Made socket connection', socket.id);
+io.on('connection', socket => {
+  socket.on('chat', data => {
+    console.log('Message sent');
+    io.sockets.emit('chat', data);
+  });
 });
