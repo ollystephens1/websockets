@@ -9,7 +9,8 @@
   "author": "Oliver Stephens",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {
     "nodemon": "^1.17.4"

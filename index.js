@@ -1,9 +1,19 @@
 const express = require('express');
+const socket = require('socket.io');
+const PORT = 4000;
 
+// App setup
 const app = express();
+const server = app.listen(PORT, function(){
+  console.log(`Socket demo running on port ${PORT}`);
+});
 
+// Static files
 app.use(express.static('public'));
 
-app.listen(4000, () => {
-  console.log('App listening on port 4000');
+// Socket setup & pass server
+const io = socket(server);
+
+io.on('connection', (socket) => {
+  console.log('Made socket connection', socket.id);
 });
